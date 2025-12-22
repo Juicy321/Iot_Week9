@@ -3,19 +3,20 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      -main
+      - main
 
 jobs:
   deploy:
-    runs-on ubuntu-latest
-      steps:
+    runs-on: ubuntu-latest
+
+    steps:
       - uses: actions/checkout@v4
 
       - name: Copy files to EC2
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: 18.234.85.77  # Replace with your EC2 public IP or add as ${{ secrets.EC2_PUBLIC_IP }}
-          username: ubuntu     # Common default for Amazon Linux/Ubuntu EC2 instances
+          host: 18.234.85.77
+          username: ubuntu
           key: ${{ secrets.EC2_KEY }}
-          source: "https://github.com/Juicy321/Iot_Week9.git"          # Copies all files from the repo (adjust as needed, e.g., "dist/" or "./")
-          target: "/var/www/html"  # Common web server directory; adjust to your needs
+          source: "https://github.com/Juicy321/Iot_Week9.git"
+          target: "/var/www/html"
