@@ -17,6 +17,6 @@ jobs:
         with:
           host: 18.234.85.77
           username: ubuntu
-          key: ${{EC2_KEY}}
+          key: ${{ EC2_KEY }}
           source: "https://github.com/Juicy321/Iot_Week9.git"
           target: "/var/www/html"
